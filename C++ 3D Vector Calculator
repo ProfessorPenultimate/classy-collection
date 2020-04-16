@@ -1,0 +1,80 @@
+//This is my first time with C++, please be gentle
+#include <iostream>
+#include <vector>
+
+//These are all the vars and vectors used in main
+int operation;
+int x;
+int y;
+int z;
+std::vector<int> vector1;
+std::vector<int> vector2;
+std::vector<int> output;
+
+//This function simply prints any vector
+void print_vector(std::vector<int> &input) {
+	for (int i = 0; i < input.size(); i++) {
+		std::cout << input.at(i) << ' ';
+	}
+}
+
+int main() {
+//The user inputs the two vectors
+  std::cout << "Welcome to the 3D Vector Calculator\n" << " \n" " \n" <<
+  "Please enter a 3D vector one coordinate at a time\n" <<
+  "So it will look like this: \nx \ny \nz \n" <<
+  "Enter Vector Below\n";
+    std::cin >> x;
+    vector1.push_back(x);
+    std::cin >> y;
+    vector1.push_back(y);
+    std::cin >> z;
+    vector1.push_back(z);
+  std::cout << "Vector 1 has been built...\n" << " \n";
+
+  std::cout << "Please enter the second vector\n";
+    std::cin >> x;
+    vector2.push_back(x);
+    std::cin >> y;
+    vector2.push_back(y);
+    std::cin >> z;
+    vector2.push_back(z);
+  std::cout << "Vector 2 has been built...\n" << " \n";
+
+//This selects the operation, calls a defined function, and then outputs the final vector
+  std::cout << "What operation would you like to perform?\n";
+  std::cout << "Enter 1 for addition \nEnter 2 for subtraction \nEnter 3 for multiplication \n";
+  std::cin >> operation;
+
+    switch (operation) {
+      case 1:
+        std::cout << " \n" << "The sum of the vectors is...\n";
+        for (int i = 0 ; i < 3; i++) {
+          std::vector<int> output;
+          output.push_back(vector1[i] + vector2[i]);
+        print_vector(output);
+        }
+        break;
+      case 2:
+        std::cout << " \n" << "The difference of the vectors is...\n";
+        for (int i = 0 ; i < 3; i++) {
+          std::vector<int> output;
+          output.push_back(vector1[i] - vector2[i]);
+          print_vector(output);
+        }
+        break;
+      case 3:
+        std::cout << " \n" << "The dot product of the vectors is...\n";
+        for (int i = 0 ; i < 3; i++) {
+          std::vector<int> output;
+          output.push_back(vector1[i] * vector2[i]);
+        print_vector(output);
+        }
+        break;
+      default:
+        std::cout << "Invalid input\n";
+        break;
+
+      return 0;
+    }
+}
